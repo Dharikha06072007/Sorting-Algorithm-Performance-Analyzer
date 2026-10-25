@@ -1,26 +1,105 @@
-# Simple Sorting Algorithm Performance Analyzer
+# Sorting Algorithm Performance Analyzer
 
-## Run in VS Code (Windows)
+A simple, interactive web application built with Python and Streamlit to compare the performance of five sorting algorithms.
 
-1. Extract the ZIP and open the folder in VS Code.
-2. Open Terminal → New Terminal.
-3. Run these commands:
+## Features
 
-```powershell
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-streamlit run app.py
+- **Five sorting algorithms:** Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, and Quick Sort.
+- **Multiple input options:** Enter numbers manually, generate random numbers, or upload a CSV/Excel dataset.
+- **Performance comparison:** View execution time, comparisons, and swaps/shifts for each algorithm.
+- **Visual results:** Compare execution times using a bar chart.
+- **Sorted output:** Inspect the sorted result for the selected algorithm.
+- **Correctness check:** Verify that the algorithms produce the expected sorted output.
+- **CSV export:** Download the performance comparison table.
+
+## Technologies Used
+
+- Python
+- Streamlit
+- Pandas
+- OpenPyXL (for Excel file support)
+
+## Requirements
+
+- Python 3.10 or later recommended
+- pip
+
+## Installation and Setup (Windows PowerShell)
+
+1. Download or clone this repository.
+2. Open the project folder in VS Code.
+3. Open the terminal in the folder containing `app.py` and `requirements.txt`.
+4. Create a virtual environment:
+
+   ```powershell
+   python -m venv .venv
+   ```
+
+5. Activate it:
+
+   ```powershell
+   .venv\Scripts\Activate.ps1
+   ```
+
+   If PowerShell blocks script execution, run this in the same terminal first:
+
+   ```powershell
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+   ```
+
+6. Install dependencies:
+
+   ```powershell
+   python -m pip install -r requirements.txt
+   ```
+
+7. Start the application:
+
+   ```powershell
+   python -m streamlit run app.py
+   ```
+
+8. Open the local URL shown in the terminal, usually `http://localhost:8501`.
+
+## How to Use
+
+1. Choose an input method: type numbers, generate random numbers, or upload a CSV/Excel file.
+2. If uploading a file, select the numeric column you want to sort.
+3. Click **Analyze Sorting Performance**.
+4. Review the comparison table and execution-time bar chart.
+5. Select an algorithm to view its sorted output.
+6. Download the results as a CSV file if needed.
+
+## Algorithm Complexity
+
+| Algorithm | Average Time Complexity | Worst-case Time Complexity |
+|---|---|---|
+| Bubble Sort | O(n²) | O(n²) |
+| Selection Sort | O(n²) | O(n²) |
+| Insertion Sort | O(n²) | O(n²) |
+| Merge Sort | O(n log n) | O(n log n) |
+| Quick Sort | O(n log n) | O(n²) |
+
+Actual execution times depend on the input dataset, computer, and Python environment. For a quick classroom demonstration, use a small dataset first.
+
+## Project Structure
+
+```text
+Sorting_Algorithm_Performance_Analyzer/
+├── app.py
+├── requirements.txt
+├── README.md
+└── .gitignore
 ```
 
-4. Open the local address shown in the terminal, usually `http://localhost:8501`.
+## Notes
 
-## Easy presentation flow
+- Keep `.venv/`, `.env`, and private secrets out of GitHub.
+- CSV/Excel upload requires a dataset with a numeric column.
+- Only upload datasets you are allowed to use and share.
 
-1. Enter numbers or generate random numbers.
-2. Select one of the five sorting algorithms.
-3. Click Analyze sorting performance.
-4. Show the before/after arrays.
-5. Explain the time, comparisons, swaps/shifts and chart comparing all five algorithms.
+## Author
 
-The app tests all five algorithms using the same input so the comparison is fair.
+**DHARIKHA U and Team**  
+Department of Artificial Intelligence and Data Science  
+Karunya Institute of Technology and Sciences
