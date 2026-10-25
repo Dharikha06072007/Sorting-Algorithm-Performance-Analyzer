@@ -1,105 +1,35 @@
-# Sorting Algorithm Performance Analyzer
+# Sorting Algorithm Performance Analyzer — Static Website
 
-A simple, interactive web application built with Python and Streamlit to compare the performance of five sorting algorithms.
+A frontend-only version of the project built with HTML, CSS, and JavaScript. It can be hosted as a Render **Static Site** without Python or a backend.
 
 ## Features
+- Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, and Quick Sort
+- Manual numeric input
+- Random dataset generator
+- CSV/TXT upload and numeric-value extraction
+- Execution-time comparison chart
+- Comparisons and swaps/shifts metrics
+- Correctness verification
+- Sorted output selector
+- Download results as CSV
+- Responsive layout for desktop and mobile
+- All analysis runs locally in the browser
 
-- **Five sorting algorithms:** Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, and Quick Sort.
-- **Multiple input options:** Enter numbers manually, generate random numbers, or upload a CSV/Excel dataset.
-- **Performance comparison:** View execution time, comparisons, and swaps/shifts for each algorithm.
-- **Visual results:** Compare execution times using a bar chart.
-- **Sorted output:** Inspect the sorted result for the selected algorithm.
-- **Correctness check:** Verify that the algorithms produce the expected sorted output.
-- **CSV export:** Download the performance comparison table.
+## Deploy on Render Static Site
+1. Upload `index.html`, `style.css`, `script.js`, and `README.md` to the root of your GitHub repository.
+2. In Render, choose **New + → Static Site**.
+3. Connect the GitHub repository.
+4. Set **Build Command** to blank (or leave it empty if Render permits).
+5. Set **Publish Directory** to `.` (a single dot).
+6. Click **Create Static Site**.
 
-## Technologies Used
+Do not use `streamlit run app.py` for this static website. It no longer requires `app.py` or `requirements.txt` to run online.
 
-- Python
-- Streamlit
-- Pandas
-- OpenPyXL (for Excel file support)
-
-## Requirements
-
-- Python 3.10 or later recommended
-- pip
-
-## Installation and Setup (Windows PowerShell)
-
-1. Download or clone this repository.
-2. Open the project folder in VS Code.
-3. Open the terminal in the folder containing `app.py` and `requirements.txt`.
-4. Create a virtual environment:
-
-   ```powershell
-   python -m venv .venv
-   ```
-
-5. Activate it:
-
-   ```powershell
-   .venv\Scripts\Activate.ps1
-   ```
-
-   If PowerShell blocks script execution, run this in the same terminal first:
-
-   ```powershell
-   Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
-   ```
-
-6. Install dependencies:
-
-   ```powershell
-   python -m pip install -r requirements.txt
-   ```
-
-7. Start the application:
-
-   ```powershell
-   python -m streamlit run app.py
-   ```
-
-8. Open the local URL shown in the terminal, usually `http://localhost:8501`.
-
-## How to Use
-
-1. Choose an input method: type numbers, generate random numbers, or upload a CSV/Excel file.
-2. If uploading a file, select the numeric column you want to sort.
-3. Click **Analyze Sorting Performance**.
-4. Review the comparison table and execution-time bar chart.
-5. Select an algorithm to view its sorted output.
-6. Download the results as a CSV file if needed.
-
-## Algorithm Complexity
-
-| Algorithm | Average Time Complexity | Worst-case Time Complexity |
-|---|---|---|
-| Bubble Sort | O(n²) | O(n²) |
-| Selection Sort | O(n²) | O(n²) |
-| Insertion Sort | O(n²) | O(n²) |
-| Merge Sort | O(n log n) | O(n log n) |
-| Quick Sort | O(n log n) | O(n²) |
-
-Actual execution times depend on the input dataset, computer, and Python environment. For a quick classroom demonstration, use a small dataset first.
-
-## Project Structure
-
-```text
-Sorting_Algorithm_Performance_Analyzer/
-├── app.py
-├── requirements.txt
-├── README.md
-└── .gitignore
-```
+## Run locally
+Open `index.html` in a browser, or use VS Code Live Server.
 
 ## Notes
-
-- Keep `.venv/`, `.env`, and private secrets out of GitHub.
-- CSV/Excel upload requires a dataset with a numeric column.
-- Only upload datasets you are allowed to use and share.
-
-## Author
-
-**DHARIKHA U and Team**  
-Department of Artificial Intelligence and Data Science  
-Karunya Institute of Technology and Sciences
+- CSV and TXT files are read locally in your browser; no data is sent to a server.
+- The app supports up to 5,000 values, but Bubble, Selection, and Insertion Sort can be slow for large datasets. Use a small input for a quick classroom demo.
+- Timing results vary with the browser, device, and dataset. For very small datasets, measured times may be close to zero.
+- The chart is drawn with the HTML canvas API and requires no charting library.

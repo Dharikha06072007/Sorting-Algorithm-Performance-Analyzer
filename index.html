@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Compare five sorting algorithms with an interactive performance analyzer." />
+  <title>Sorting Algorithm Performance Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-glow glow-one"></div><div class="background-glow glow-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">↕</span><span>Sort<span class="brand-accent">Lab</span></span></a>
+    <span class="top-pill"><span class="live-dot"></span> CLIENT-SIDE ANALYSIS</span>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow"><span>✦</span> SOFTWARE OPTIMIZATION & DATA ANALYTICS</div>
+      <h1>Sorting Algorithm<br><span>Performance Analyzer</span></h1>
+      <p class="hero-copy">Explore how five classic sorting algorithms perform on the same dataset. Run a test, compare the metrics, and see the results instantly.</p>
+      <div class="algorithm-chips"><span>Bubble</span><span>Selection</span><span>Insertion</span><span>Merge</span><span>Quick</span></div>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading"><div><span class="step">01</span><h2>Configure your dataset</h2></div><p>Choose how to provide your numbers</p></div>
+      <div class="input-grid">
+        <div class="panel input-panel">
+          <label for="numbers">Enter numbers <span class="label-note">comma or space separated</span></label>
+          <textarea id="numbers" rows="4" placeholder="45, 12, 30, 8, 20, 16">45, 12, 30, 8, 20, 16</textarea>
+          <div class="button-row">
+            <button id="runBtn" class="button primary">▶ Run performance test</button>
+            <button id="clearBtn" class="button secondary">Clear</button>
+          </div>
+          <div id="message" class="message" role="status"></div>
+        </div>
+        <div class="panel tools-panel">
+          <div class="tool-title"><span class="tool-icon">⚡</span><div><h3>Quick generator</h3><p>Create a random dataset to test</p></div></div>
+          <label for="count">Number of values <strong id="countValue">50</strong></label>
+          <input id="count" type="range" min="5" max="500" value="50" />
+          <div class="range-labels"><span>5 values</span><span>500 values</span></div>
+          <button id="randomBtn" class="button secondary full">Generate random numbers</button>
+          <div class="upload-area">
+            <label for="fileInput" class="upload-label"><span class="upload-symbol">↑</span><span><strong>Upload CSV / TXT</strong><small>Numeric data, comma or newline separated</small></span></label>
+            <input id="fileInput" type="file" accept=".csv,.txt" />
+          </div>
+          <p class="privacy-note">Your data is processed in this browser and is not uploaded to a server.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultsSection" class="results-section hidden">
+      <div class="section-heading"><div><span class="step">02</span><h2>Performance results</h2></div><p id="datasetInfo">Same input · fair comparison</p></div>
+      <div class="metric-grid">
+        <div class="metric-card"><span class="metric-label">FASTEST ALGORITHM</span><strong id="fastest">—</strong><span class="metric-foot">In this run</span></div>
+        <div class="metric-card"><span class="metric-label">DATASET SIZE</span><strong id="datasetSize">—</strong><span class="metric-foot">Numbers analyzed</span></div>
+        <div class="metric-card"><span class="metric-label">ALGORITHMS TESTED</span><strong>05</strong><span class="metric-foot">All outputs verified</span></div>
+      </div>
+      <div class="results-grid">
+        <div class="panel chart-panel"><div class="panel-heading"><div><h3>Execution time</h3><p>Milliseconds · lower is faster</p></div><span class="mini-badge">LIVE TEST</span></div><canvas id="chart" aria-label="Execution time bar chart"></canvas><div class="chart-foot"><span><i class="legend-dot"></i> Execution time</span><span>Timing varies by device</span></div></div>
+        <div class="panel table-panel"><div class="panel-heading"><div><h3>Comparison table</h3><p>Runtime, operations & correctness</p></div></div><div class="table-wrap"><table><thead><tr><th>Algorithm</th><th>Time (ms)</th><th>Comparisons</th><th>Swaps / shifts</th><th>Correct</th></tr></thead><tbody id="resultsBody"></tbody></table></div><button id="downloadBtn" class="button secondary full">↓ Download results CSV</button></div>
+      </div>
+      <div class="panel output-panel"><div class="panel-heading"><div><h3>Sorted output</h3><p>Select an algorithm to inspect its sorted result</p></div></div><div class="output-controls"><label for="algorithmSelect">Algorithm</label><select id="algorithmSelect"><option>Bubble Sort</option><option>Selection Sort</option><option>Insertion Sort</option><option>Merge Sort</option><option>Quick Sort</option></select><span id="outputStatus" class="success-tag">✓ Sorted correctly</span></div><pre id="sortedOutput"></pre></div>
+    </section>
+
+    <section class="guide-section">
+      <div class="section-heading"><div><span class="step">03</span><h2>Algorithm guide</h2></div><p>What happens behind the scenes</p></div>
+      <div class="guide-grid">
+        <article class="guide-card"><div class="guide-number">01</div><h3>Bubble Sort</h3><p>Repeatedly swaps neighboring values that are out of order.</p><span class="complexity">Average: O(n²)</span></article>
+        <article class="guide-card"><div class="guide-number">02</div><h3>Selection Sort</h3><p>Finds the smallest remaining value and moves it into place.</p><span class="complexity">Average: O(n²)</span></article>
+        <article class="guide-card"><div class="guide-number">03</div><h3>Insertion Sort</h3><p>Inserts each value into the correct position in the sorted section.</p><span class="complexity">Average: O(n²)</span></article>
+        <article class="guide-card"><div class="guide-number">04</div><h3>Merge Sort</h3><p>Splits the list, sorts each half, then merges them together.</p><span class="complexity">Average: O(n log n)</span></article>
+        <article class="guide-card"><div class="guide-number">05</div><h3>Quick Sort</h3><p>Uses a pivot to partition smaller and larger values.</p><span class="complexity">Average: O(n log n)</span></article>
+      </div>
+    </section>
+    <footer><span>SortLab · Sorting Algorithm Performance Analyzer</span><span>Built with HTML · CSS · JavaScript</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
